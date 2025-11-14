@@ -69,7 +69,7 @@ Before running this application, ensure you have:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/mahdialaaaldin/login-challenge
 cd LoginChallenge
 ```
 
@@ -145,19 +145,6 @@ curl -X POST https://localhost:7227/api/Auth/login \
 
 ## 📐 Design Decisions
 
-### Why React?
-- Component-based architecture for reusability
-- Virtual DOM for efficient rendering
-- Large ecosystem and community support
-- Excellent developer experience with Vite
-
-### Why ASP.NET Core?
-- High performance and scalability
-- Built-in dependency injection
-- Strong typing with C#
-- Excellent security features out of the box
-- Cross-platform support
-
 ### Why SQLite?
 - Zero configuration required
 - Self-contained database file
@@ -179,34 +166,6 @@ curl -X POST https://localhost:7227/api/Auth/login \
 - **Responsive design** works on mobile and desktop
 - **Accessible** with proper labels and ARIA attributes
 
-## 🔄 Development Process
-
-### Phase 1: Backend Development (40 minutes)
-1. Created ASP.NET Core Web API project
-2. Installed required NuGet packages
-3. Designed database schema (User model)
-4. Implemented Entity Framework DbContext
-5. Created AuthController with login endpoint
-6. Set up JWT authentication
-7. Added password hashing with BCrypt
-8. Configured CORS for React frontend
-9. Tested API with Swagger
-
-### Phase 2: Frontend Development (35 minutes)
-1. Created React app with Vite
-2. Designed component structure
-3. Implemented LoginPage component matching Figma design
-4. Created authService for API communication
-5. Added form validation and error handling
-6. Styled components with CSS
-7. Tested integration with backend
-
-### Phase 3: Documentation (20 minutes)
-1. Created comprehensive README
-2. Documented architecture and design decisions
-3. Added setup instructions
-4. Listed security features and limitations
-
 ## ⚠️ Known Limitations
 
 1. **Token Storage**: Tokens stored in localStorage (consider HttpOnly cookies for production)
@@ -217,53 +176,6 @@ curl -X POST https://localhost:7227/api/Auth/login \
 6. **Development Database**: Using SQLite (migrate to SQL Server/PostgreSQL for production)
 7. **No Email Verification**: Users aren't verified via email
 8. **HTTPS Certificate**: Development certificate may show warnings in browser
-
-## 🔐 Environment Variables
-
-For production, use environment variables for sensitive data:
-
-**Backend (appsettings.Production.json):**
-```json
-{
-  "JwtSettings": {
-    "SecretKey": "USE_ENVIRONMENT_VARIABLE",
-    "Issuer": "YourProductionIssuer",
-    "Audience": "YourProductionAudience"
-  },
-  "ConnectionStrings": {
-    "DefaultConnection": "USE_ENVIRONMENT_VARIABLE"
-  }
-}
-```
-
-**Frontend (.env.production):**
-```
-VITE_API_URL=https://your-production-api.com/api
-```
-
-## Building for Production
-
-### Backend
-```bash
-cd LoginAPI
-dotnet publish -c Release -o ./publish
-```
-
-### Frontend
-```bash
-cd frontend
-npm run build
-# Build output will be in ./dist folder
-```
-
-## Code Quality
-
-- **Clean Code**: Descriptive variable names, clear function purposes
-- **Separation of Concerns**: Controllers, Services, Models separated
-- **Error Handling**: Try-catch blocks with proper logging
-- **Consistent Formatting**: Following C# and JavaScript conventions
-- **Comments**: Added where business logic isn't immediately clear
-- **No Hardcoded Values**: Configuration in appsettings.json
 
 ## Best Practices Implemented
 
@@ -284,18 +196,3 @@ npm run build
 ✅ Loading states for async operations  
 ✅ Form validation  
 ✅ Responsive design  
-
-## Future Enhancements
-
-- [ ] Add user registration endpoint
-- [ ] Implement password reset functionality
-- [ ] Add refresh token mechanism
-- [ ] Implement rate limiting
-- [ ] Add unit and integration tests
-- [ ] Set up CI/CD pipeline
-- [ ] Add email verification
-- [ ] Implement role-based authorization
-- [ ] Add multi-factor authentication
-- [ ] Migrate to PostgreSQL/SQL Server
-- [ ] Add comprehensive logging and monitoring
-- [ ] Implement account lockout after failed attempts
